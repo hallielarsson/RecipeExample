@@ -13,7 +13,15 @@
 
     .recipe{
       background-color: #FFDD88;
+      counter-reset: section;
       flex: 2;
+    }
+
+    .recipe div::before {
+      counter-increment: section;
+      content: counter(section) ".";
+      padding-right: 2px;
+
     }
 
     .ingredients {
