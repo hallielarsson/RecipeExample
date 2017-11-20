@@ -75,15 +75,15 @@
 
 <body>
   <div id = "app">
-    <h1>{{ title }}</h1>  
+    <h1>{{ recipe.title }}</h1>  
 
     <div class="recipe-wrapper">
       <div class="ingredients">
-          <div class="ingredient" v-for="ingredient in ingredients">{{ ingredient }}</div>
+          <div class="ingredient" v-for="ingredient in recipe.ingredients">{{ ingredient }}</div>
       </div>
 
       <div class="recipe">
-          <div class="recipe-step" v-for="step in steps">{{ step }}</div>
+          <div class="recipe-step" v-for="step in recipe.steps">{{ step }}</div>
       </div>
     </div>
       <button @click="switchRecipe(-1)">Previous</button>
@@ -142,15 +142,12 @@
     ];
 
     var recipeIndex = 0;
-    recipe = recipes[0];
 
     var app = new Vue({
       el: '#app',
       data: {
         //we define the app data iself here
-        title: recipe.title,
-        steps: recipe.steps,
-        ingredients: recipe.ingredients,
+        recipe: recipes[0],
       },
       methods: {
         switchRecipe: function(delta) {
@@ -159,10 +156,7 @@
             recipeIndex += recipes.length;
           }
           recipeIndex = recipeIndex % recipes.length;
-          recipe = recipes[recipeIndex];
-          this.title = recipe.title;
-          this.steps = recipe.steps;
-          this.ingredients = recipe.ingredients;
+          this.recipe = recipes[recipeIndex];
 
         }
       }
