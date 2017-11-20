@@ -2,19 +2,25 @@
   <title>Pumpkin Pie Recipe</title>
 
   <style>
+  body {
+    background-color: #FFFEDD;
+    font-family: sans-serif;
+  }
+
     .recipe-wrapper{
       display: flex;
     }
 
     .recipe, .ingredients{
-      padding: 4px;
       margin: 4px;
+      border: 4px solid #442200;
+      border-radius: 2px;
     }
 
     .recipe{
       background-color: #FFDD88;
       counter-reset: section;
-      flex: 2;
+      flex: 1;
     }
 
     .recipe div::before {
@@ -25,21 +31,26 @@
     }
 
     .ingredients {
-      background-color: #FFEEAA;
-      flex: 1;
+      background-color: #7d5515;
       display: flex;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
+      justify-content: stretch;
+      flex: 0.5;
     }
 
     .ingredients div {
-      flex-grow: 1;
+      background-color: #FEFEFE;
+      margin: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       flex-shrink: 0;
+      flex-grow: 1;
+
     }
     .ingredients div, .recipe div{
       padding: 4px;
-    }
-    .ingredients div:nth-child(even) {
-      background-color: white;
     }
 
     .recipe div:nth-child(even) {
