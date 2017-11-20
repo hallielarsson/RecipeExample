@@ -9,13 +9,25 @@
     }
 
 
-    h1{
-      text-align: center;
+    .header{
+      user-select: none;
       background-color: #442200;
       color: #FFFEEE;
       padding-top: 4px;
       padding-bottom: 16px;
       margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 24px;
+      cursor: 
+    }
+
+    .nav-arrow{
+      margin: 0;
+      padding: 0 30px;
+      user-select: none;
+
     }
 
 
@@ -75,7 +87,11 @@
 
 <body>
   <div id = "app">
-    <h1>{{ recipe.title }}</h1>  
+    <div class="header">
+     <div @click="switchRecipe(-1)" class="nav-arrow">◀</div>
+     <div>{{ recipe.title }}</div>
+     <div @click="switchRecipe(1)" class="nav-arrow">▶</div>
+    </div>  
 
     <div class="recipe-wrapper">
       <div class="ingredients">
@@ -86,8 +102,7 @@
           <div class="recipe-step" v-for="step in recipe.steps">{{ step }}</div>
       </div>
     </div>
-      <button @click="switchRecipe(-1)">Previous</button>
-      <button @click="switchRecipe(1)">Next</button>
+      
   </div>
 
   <script>
