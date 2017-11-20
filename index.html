@@ -83,8 +83,8 @@
       <div class="recipe">
           <div class="recipe-step" v-for="step in steps">{{ step }}</div>
       </div>
-
     </div>
+      <button @click="switchRecipe()">Switch</button>
   </div>
 
   <script>
@@ -114,6 +114,8 @@
       ],
     };
 
+
+
     var boiledEggs = {
       title: "Hard-Boiled Eggs",
       ingredients: [ "6 large eggs." ],
@@ -124,9 +126,8 @@
         "Remove pot from heat and allow to cool.",
       ],
     }
-
     var recipe = pumpkinPie;
-    
+
     var app = new Vue({
       el: '#app',
       data: {
@@ -136,7 +137,16 @@
         ingredients: recipe.ingredients,
       },
       methods: {
-
+        switchRecipe: function() {
+          if (recipe == pumpkinPie) {
+            recipe = boiledEggs;
+          } else {
+            recipe = pumpkinPie;
+          }
+          this.title = recipe.title;
+          this.steps = recipe.steps;
+          this.ingredients = recipe.ingredients;
+        }
       }
     });
   </script>
