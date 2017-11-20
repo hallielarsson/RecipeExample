@@ -88,52 +88,55 @@
   </div>
 
   <script>
-    var pumpkinPieSteps = [
-      "Preheat oven to 375 degrees.",
-      "While oven is preheating, melt the butter in a saucepan over medium-high heat.",
-      "Add clove, nutmeg, cinnamon, and any other desired spices to the butter for one minute or until spices become aromatic.",
-      "Reduce heat to low and add pumpkin puree and bourbon to the saucepan. Stir as mixture cools.",
-      "Add condensed milk to saucepan. Stir until mixture is a smooth pastel orange. Remove from heat.",
-      "While mixture cools, beat the eggs in a separate bowl.",
-      "Fold eggs into mixture.",
-      "Pour mixture into pie shell and bake for 30-45 minutes, or until top of pie begins to puff slightly.",
-    ];
 
-    var pumpkinPieIngredients = [
-      "1 can pumpkin puree",
-      "1 can sweetened condensed milk",
-      "2 large eggs",
-      "1 tsp vanilla",
-      "1 tsp cinnamon",
-      "1/2 tsp salt",
-      "1/2 ounce butter",
-      "1/4 tsp nutmeg",
-      "1/4 tsp clove",
-      "1 tbsp bourbon",
-    ];
+    var pumpkinPie = {
+      title: "Pumpkin Pie",
+      ingredients: [ "1 can pumpkin puree",
+        "1 can sweetened condensed milk",
+        "2 large eggs",
+        "1 tsp vanilla",
+        "1 tsp cinnamon",
+        "1/2 tsp salt",
+        "1/2 ounce butter",
+        "1/4 tsp nutmeg",
+        "1/4 tsp clove",
+        "1 tbsp bourbon",
+      ],
+      steps: [
+        "Preheat oven to 375 degrees.",
+        "While oven is preheating, melt the butter in a saucepan over medium-high heat.",
+        "Add clove, nutmeg, cinnamon, and any other desired spices to the butter for one minute or until spices become aromatic.",
+        "Reduce heat to low and add pumpkin puree and bourbon to the saucepan. Stir as mixture cools.",
+        "Add condensed milk to saucepan. Stir until mixture is a smooth pastel orange. Remove from heat.",
+        "While mixture cools, beat the eggs in a separate bowl.",
+        "Fold eggs into mixture.",
+        "Pour mixture into pie shell and bake for 30-45 minutes, or until top of pie begins to puff slightly.",
+      ],
+    };
 
+    var boiledEggs = {
+      title: "Hard-Boiled Eggs",
+      ingredients: [ "6 large eggs." ],
+      steps: [
+        "Put eggs in saucepan.",
+        "Fill a saucepan with water until eggs are covered.",
+        "Bring water to a boil.",
+        "Remove pot from heat and allow to cool.",
+      ],
+    }
 
-    var boiledEggIngredients = [
-      "6 large eggs.",
-    ];
-
-    var boiledEggSteps = [
-      "Put eggs in saucepan.",
-      "Fill a saucepan with water until eggs are covered.",
-      "Bring water to a boil.",
-      "Remove pot from heat and allow to cool.",
-    ];
-
+    var recipe = pumpkinPie;
+    
     var app = new Vue({
       el: '#app',
       data: {
         //we define the app data iself here
-        title: "Hard-Boiled Eggs",
-        steps: boiledEggSteps,
-        ingredients: boiledEggIngredients,
+        title: recipe.title,
+        steps: recipe.steps,
+        ingredients: recipe.ingredients,
       },
       methods: {
-        //we will define functions and code the app uses here
+
       }
     });
   </script>
