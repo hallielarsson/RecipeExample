@@ -86,6 +86,7 @@
 
     </div>
   </div>
+
   <script>
     var pumpkinPieSteps = [
       "Preheat oven to 375 degrees.",
@@ -111,13 +112,25 @@
       "1 tbsp bourbon",
     ];
 
+
+    var boiledEggIngredients = [
+      "6 large eggs.",
+    ];
+
+    var boiledEggSteps = [
+      "Put eggs in saucepan.",
+      "Fill a saucepan with water until eggs are covered.",
+      "Bring water to a boil.",
+      "Remove pot from heat and allow to cool.",
+    ];
+
     var app = new Vue({
       el: '#app',
       data: {
         //we define the app data iself here
-        title: "Pumkin Pie Recipe",
-        steps: pumpkinPieSteps,
-        ingredients: pumpkinPieIngredients,
+        title: "Hard-Boiled Eggs",
+        steps: boiledEggSteps,
+        ingredients: boiledEggIngredients,
       },
       methods: {
         //we will define functions and code the app uses here
