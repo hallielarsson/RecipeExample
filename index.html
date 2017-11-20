@@ -77,20 +77,11 @@
 
     <div class="recipe-wrapper">
       <div class="ingredients">
-        <div>1 can pumpkin puree</div>
-        <div>1 can sweetened condensed milk</div>
-        <div>2 large eggs</div>
-        <div>1 tsp vanilla</div>
-        <div>1 tsp cinnamon</div>
-        <div>1/2 tsp salt</div>
-        <div>1/2 ounce butter</div>
-        <div>1/4 tsp nutmeg</div>
-        <div>1/4 tsp clove</div>
-        <div>1 tbsp bourbon</div>
+          <div class="ingredient" v-for="ingredient in ingredients">{{ ingredient }}</div>
       </div>
 
       <div class="recipe">
-          <div v-for="step in steps">{{ step }}</div>
+          <div class="recipe-step" v-for="step in steps">{{ step }}</div>
       </div>
 
     </div>
@@ -107,12 +98,26 @@
       "Pour mixture into pie shell and bake for 30-45 minutes, or until top of pie begins to puff slightly.",
     ];
 
+    var pumpkinPieIngredients = [
+      "1 can pumpkin puree",
+      "1 can sweetened condensed milk",
+      "2 large eggs",
+      "1 tsp vanilla",
+      "1 tsp cinnamon",
+      "1/2 tsp salt",
+      "1/2 ounce butter",
+      "1/4 tsp nutmeg",
+      "1/4 tsp clove",
+      "1 tbsp bourbon",
+    ];
+
     var app = new Vue({
       el: '#app',
       data: {
         //we define the app data iself here
         title: "Pumkin Pie Recipe",
         steps: pumpkinPieSteps,
+        ingredients: pumpkinPieIngredients,
       },
       methods: {
         //we will define functions and code the app uses here
