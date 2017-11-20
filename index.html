@@ -27,8 +27,14 @@
     .ingredients {
       background-color: #FFEEAA;
       flex: 1;
+      display: flex;
+      flex-wrap: wrap;
     }
 
+    .ingredients div {
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
     .ingredients div, .recipe div{
       padding: 4px;
     }
