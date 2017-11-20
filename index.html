@@ -1,6 +1,6 @@
 <head>
   <title>Pumpkin Pie Recipe</title>
-
+  <script src="https://unpkg.com/vue"></script>
   <style>
     body {
       background-color: #FFFEDD;
@@ -72,32 +72,52 @@
 </head>
 
 <body>
-  <h1>Pumpkin Pie Recipe</h1>  
+  <div id = "app">
+    <h1>{{ title }}</h1>  
 
-  <div class="recipe-wrapper">
-    <div class="ingredients">
-      <div>1 can pumpkin puree</div>
-      <div>1 can sweetened condensed milk</div>
-      <div>2 large eggs</div>
-      <div>1 tsp vanilla</div>
-      <div>1 tsp cinnamon</div>
-      <div>1/2 tsp salt</div>
-      <div>1/2 ounce butter</div>
-      <div>1/4 tsp nutmeg</div>
-      <div>1/4 tsp clove</div>
-      <div>1 tbsp bourbon</div>
+    <div class="recipe-wrapper">
+      <div class="ingredients">
+        <div>1 can pumpkin puree</div>
+        <div>1 can sweetened condensed milk</div>
+        <div>2 large eggs</div>
+        <div>1 tsp vanilla</div>
+        <div>1 tsp cinnamon</div>
+        <div>1/2 tsp salt</div>
+        <div>1/2 ounce butter</div>
+        <div>1/4 tsp nutmeg</div>
+        <div>1/4 tsp clove</div>
+        <div>1 tbsp bourbon</div>
+      </div>
+
+      <div class="recipe">
+          <div v-for="step in steps">{{ step }}</div>
+      </div>
+
     </div>
-
-    <div class="recipe">
-        <div>Preheat oven to 375 degrees.</div>
-        <div>While oven is preheating, melt the butter in a saucepan over medium-high heat.</div>
-        <div>Add clove, nutmeg, cinnamon, and any other desired spices to the butter for one minute or until spices become aromatic.</div>
-        <div>Reduce heat to low and add pumpkin puree and bourbon to the saucepan. Stir as mixture cools.</div>
-        <div>Add condensed milk to saucepan. Stir until mixture is a smooth pastel orange. Remove from heat.</div>
-        <div>While mixture cools, beat the eggs in a separate bowl.</div>
-        <div>Fold eggs into mixture.</div>
-        <div>Pour mixture into pie shell and bake for 30-45 minutes, or until top of pie begins to puff slightly.</div>
-    </div>
-
   </div>
+  <script>
+    var pumpkinPieSteps = [
+      "Preheat oven to 375 degrees.",
+      "While oven is preheating, melt the butter in a saucepan over medium-high heat.",
+      "Add clove, nutmeg, cinnamon, and any other desired spices to the butter for one minute or until spices become aromatic.",
+      "Reduce heat to low and add pumpkin puree and bourbon to the saucepan. Stir as mixture cools.",
+      "Add condensed milk to saucepan. Stir until mixture is a smooth pastel orange. Remove from heat.",
+      "While mixture cools, beat the eggs in a separate bowl.",
+      "Fold eggs into mixture.",
+      "Pour mixture into pie shell and bake for 30-45 minutes, or until top of pie begins to puff slightly.",
+    ];
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        //we define the app data iself here
+        title: "Pumkin Pie Recipe",
+        steps: pumpkinPieSteps,
+      },
+      methods: {
+        //we will define functions and code the app uses here
+      }
+    });
+  </script>
+
 </body>
