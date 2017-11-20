@@ -86,7 +86,8 @@
           <div class="recipe-step" v-for="step in steps">{{ step }}</div>
       </div>
     </div>
-      <button @click="switchRecipe()">Switch</button>
+      <button @click="switchRecipe(-1)">Previous</button>
+      <button @click="switchRecipe(1)">Next</button>
   </div>
 
   <script>
@@ -126,7 +127,18 @@
           "Bring water to a boil.",
           "Remove pot from heat and allow to cool.",
         ],
-      }
+      },
+      {
+        title: "Soft-Boiled Eggs",
+        ingredients: [ "6 large eggs." ],
+        steps: [
+          "Fill a saucepan with enough watever to cover 6 eggs.",
+          "Bring water to a boil.",
+          "Reduce heat and allow water to come to a simmer.",
+          "Put eggs in saucepan.",
+          "Cook eggs for 5-7 minutes.",
+        ],
+      }      
     ];
 
     var recipeIndex = 0;
@@ -141,8 +153,11 @@
         ingredients: recipe.ingredients,
       },
       methods: {
-        switchRecipe: function() {
-          recipeIndex++;
+        switchRecipe: function(delta) {
+          recipeIndex += delta;
+          if(recipeIndex < 0){
+            recipeIndex += recipes.length;
+          }
           recipeIndex = recipeIndex % recipes.length;
           recipe = recipes[recipeIndex];
           this.title = recipe.title;
